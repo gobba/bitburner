@@ -11,6 +11,7 @@ const filesToDownload = [
   'runHacking.ns',
   'find.ns',
   'contracter.ns',
+  'hacknet-auto.script',
 ]
 const valuesToRemove = ['BB_SERVER_MAP']
 
