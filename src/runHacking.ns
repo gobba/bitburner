@@ -24,7 +24,7 @@ export async function main(ns) {
     ns.tprint(`[${localeHHMMSS()}] Spawning playerServers.ns`)
     ns.run('playerServers.ns', 1)
     ns.tprint(`[${localeHHMMSS()}] Spawning stock-master.ns`)
-    ns.run('stock-master.ns',1)
+    ns.spawn('stock-master.ns',1)
     ns.tprint(`[${localeHHMMSS()}] Spawning hacknet-auto.ns`)
     ns.spawn('hacknet-auto.script',1)
   } else {
