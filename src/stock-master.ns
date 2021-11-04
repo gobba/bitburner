@@ -125,7 +125,7 @@ function buy(stock, numShares) {
     var price = stock.buy(numShares);
     if (price > stock.price)
         log(`WARNING: Intended to buy ${stock.sym} @ ${formatMoney(stock.price)} but price was ${formatMoney(price)}`);
-    log(`Bought ${numShares.toLocaleString()} ${stock.sym} @ ${formatMoney(price)} for ${formatMoney(numShares * price)} (ExpRet: ${(stock.expRet * 10000).toFixed(1)}BP)`);
+    log(`Bought ${numShares.toLocaleString()} ${stock.sym} @ ${formatMoney(price)} for ${formatMoney(numShares * price)} (ExpRet: ${(stock.expRet * 10000).toFixed(1)}BP)`,true);
     stock.shares += numShares;
     return numShares * price + commission; // Return the amount spent on the transaction so it can be subtracted from our cash on hand
 }
@@ -137,6 +137,6 @@ function sell(stock, numShares) {
     if (price < stock.price)
         log(`WARNING: Intended to sell ${stock.sym} @ ${formatMoney(stock.price)} but price was ${formatMoney(price)}`);
     log(`Sold ${numShares == stock.shares ? 'all' : ''} ${numShares.toLocaleString()} ${stock.sym} for ` +
-        (profit > 0 ? `profit of ${formatMoney(profit)}` : `LOSS of ${formatMoney(-profit)} (ExpRet: ${(stock.expRet * 10000).toFixed(1)}BP)`));
+        (profit > 0 ? `profit of ${formatMoney(profit)}` : `LOSS of ${formatMoney(-profit)} (ExpRet: ${(stock.expRet * 10000).toFixed(1)}BP)`), true);
     stock.shares -= numShares;
 }
